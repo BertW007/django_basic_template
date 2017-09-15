@@ -24,4 +24,6 @@ urlpatterns = [
         views.signup, name='signup'),
     url(r'^login/$',
         auth_views.login,  {'template_name': 'my_project/login.html'}, name='login'),
+    url(r'^logout/$',
+        auth_views.logout, name='logout'),
 ]

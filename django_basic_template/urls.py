@@ -28,4 +28,6 @@ urlpatterns = [
         auth_views.logout, name='logout'),
     url(r'^$',
         views.home, name='home'),
+    url(r'^password/$',
+        views.change_password, name='change_password'),
 ]

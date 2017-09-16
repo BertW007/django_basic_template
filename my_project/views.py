@@ -1,12 +1,6 @@
-import warnings
-from django.contrib.auth import authenticate, login, REDIRECT_FIELD_NAME
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.views import deprecate_current_app, LoginView
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
-
-# Create your views here.
-from django.utils.deprecation import RemovedInDjango21Warning
 
 
 def signup(request):
@@ -22,3 +16,9 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'my_project/signup.html', {'form': form})
+
+
+def home(request):
+    return render(request, 'base.html', {
+        'title': "Home Page",
+    })

@@ -49,6 +49,20 @@
                   </div>
                 </div>
             </li>
+            <li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <p class="dropdown-item">Last visit: <br>{{ user.last_login }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </li>
         </ul>
     </div>
 </nav>

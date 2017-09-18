@@ -5,3 +5,5 @@ This repository contains functions:
 - login
 - logout
 - change password
+- confirmation email
+

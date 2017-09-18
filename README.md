@@ -6,4 +6,5 @@ This repository contains functions:
 - logout
 - change password
 - confirmation email
+- reset password
 

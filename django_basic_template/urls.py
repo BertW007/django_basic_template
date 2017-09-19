@@ -44,4 +44,6 @@ urlpatterns = [
     url(r'^reset/done/$',
         auth_views.password_reset_complete, {'template_name': 'my_project/password_reset_complete.html'},
         name='password_reset_complete'),
+    url(r'^update_user/',
+        views.UserUpdateView.as_view(), name='update'),
 ]

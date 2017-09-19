@@ -1,16 +1,17 @@
 from django.contrib.auth import login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.views.generic import UpdateView
 from .tokens import account_activation_token
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-
-from my_project.forms import SignupForm
+from my_project.forms import SignupForm, UserUpdateForm
 
 
 def signup(request):
@@ -92,3 +93,13 @@ def change_password(request):
         'form': form,
         'title': "Change Password"
     })
+
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserUpdateForm
+    template_name = 'my_project/user_form.html'
+    success_url = 'http://127.0.0.1:8000'
+
+    def get_object(self, queryset=None):
+        return self.request.user

@@ -46,4 +46,6 @@ urlpatterns = [
         name='password_reset_complete'),
     url(r'^update_user/',
         views.UserUpdateView.as_view(), name='update'),
+    url(r'^delete_user/',
+        views.UserDeleteView.as_view(), name='delete'),
 ]

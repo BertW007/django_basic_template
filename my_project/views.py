@@ -7,6 +7,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.views.generic import DeleteView
 from django.views.generic import UpdateView
 from .tokens import account_activation_token
 from django.utils.encoding import force_bytes, force_text
@@ -100,6 +101,15 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     form_class = UserUpdateForm
     template_name = 'my_project/user_form.html'
     success_url = 'http://127.0.0.1:8000'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+class UserDeleteView(LoginRequiredMixin, DeleteView):
+    model = User
+    success_url = 'http://127.0.0.1:8000'
+    template_name = 'my_project/user_confirm_delete.html'
 
     def get_object(self, queryset=None):
         return self.request.user

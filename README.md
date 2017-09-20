@@ -7,4 +7,5 @@ This repository contains functions:
 - change password
 - confirmation email
 - reset password
+- delete user acc
 

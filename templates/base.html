@@ -29,25 +29,12 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        User function:
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{% url 'login' %}">Login</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                        <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a>
-                        <a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a>
-                        <a class="dropdown-item" href="{% url 'delete' %}">Delete User Acc</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Global function:
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{% url 'signup' %}">Register new User</a>
+                        <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                        <a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a>
                   </div>
                 </div>
             </li>
@@ -60,7 +47,9 @@
                         {{ user.username }}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <p class="dropdown-item">Last visit: <br>{{ user.last_login }}</p>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a>
+                        <a class="dropdown-item" href="{% url 'delete' %}">Delete User Acc</a>
                     </div>
                     {% endif %}
                 </div>

@@ -48,4 +48,6 @@ urlpatterns = [
         views.UserUpdateView.as_view(), name='update'),
     url(r'^delete_user/',
         views.UserDeleteView.as_view(), name='delete'),
+    url(r'^info_user/',
+        views.UserInfoView.as_view(), name='info'),
 ]

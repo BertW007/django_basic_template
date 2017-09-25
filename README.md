@@ -8,4 +8,5 @@ This repository contains functions:
 - confirmation email
 - reset password
 - delete user acc
+- show user info
 
